@@ -9,12 +9,13 @@ pipeline {
      SERVICE_NAME = "fleetman-mongodb"     
      REPOSITORY_TAG="${YOUR_DOCKERHUB_USERNAME}/${ORGANIZATION_NAME}-${SERVICE_NAME}:${BUILD_ID}"
    }
-   stage('Script de depart ') {
-      steps {
-         script { System.setProperty("org.jenkinsci.plugins.durabletask.BourneShellScript.HEARTBEAT_CHECK_INTERVAL", "8886800"); }   
-      }
-   }
+   
    stages {
+      stage('Script de depart ') {
+         steps {
+            script { System.setProperty("org.jenkinsci.plugins.durabletask.BourneShellScript.HEARTBEAT_CHECK_INTERVAL", "8886800"); }   
+         }
+      }
       stage('Preparation') {
          steps {
             cleanWs()
